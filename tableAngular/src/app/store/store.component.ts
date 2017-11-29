@@ -1,6 +1,7 @@
+import { Product } from '../model/product';
 import { ProductService } from "../product.service";
 import { Component, OnInit } from "@angular/core";
-
+import "rxjs/add/operator/map";
 @Component({
   selector: "app-store",
   templateUrl: "./store.component.html",
@@ -31,7 +32,7 @@ export class StoreComponent implements OnInit {
   }
 
 
-  
+
   public allProductsT() {
     return this._productService.getProducts().subscribe(res => {
       this.categories = res

@@ -9,7 +9,7 @@ import { StoreComponent } from './store/store.component';
 @NgModule({
   declarations: [
     AppComponent,
-    StoreComponent
+    StoreComponent,
   ],
   imports: [
     BrowserModule,
