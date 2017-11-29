@@ -1,7 +1,8 @@
+import { Cart } from '../model/cart';
 import { Product } from '../model/product';
 import { ProductService } from "../product.service";
 import { Component, OnInit } from "@angular/core";
-import "rxjs/add/operator/map";
+import 'rxjs/add/operator/map';
 @Component({
   selector: "app-store",
   templateUrl: "./store.component.html",
@@ -15,7 +16,7 @@ export class StoreComponent implements OnInit {
   public productsPerPage = 4;
   public selectedPage = 1;
 
-  constructor(private _productService: ProductService) {}
+  constructor(private _productService: ProductService, private _cart :Cart) {}
 
   public ngOnInit(): void {
     this.listproducts();
@@ -62,4 +63,9 @@ export class StoreComponent implements OnInit {
     this.selectedPage = newPage;
     this.listproducts();
   }
+
+
+  addProductToCart(product: Product) {              
+    this._cart.addToCart(product);              
+}  
 }

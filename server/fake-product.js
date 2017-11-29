@@ -30,7 +30,7 @@ Fake.prototype._read = function _read() {
 
 casual.define('product', () => {
     return {
-        part_number: casual.integer(1, 9999999),
+        id: casual.uuid,
         name: casual.title,
         category: casual.random_element(['category1', 'category2', 'category3']),
         price: casual.integer(from = 10, to = 1000),
