@@ -1,8 +1,9 @@
-import { Cart } from '../model/cart';
-import { Product } from '../model/product';
+import { Router } from "@angular/router";
+import { Cart } from "../model/cart";
+import { Product } from "../model/product";
 import { ProductService } from "../product.service";
 import { Component, OnInit } from "@angular/core";
-import 'rxjs/add/operator/map';
+import "rxjs/add/operator/map";
 @Component({
   selector: "app-store",
   templateUrl: "./store.component.html",
@@ -16,7 +17,11 @@ export class StoreComponent implements OnInit {
   public productsPerPage = 4;
   public selectedPage = 1;
 
-  constructor(private _productService: ProductService, private _cart :Cart) {}
+  constructor(
+    private _productService: ProductService,
+    private _cart: Cart,
+    private _route: Router
+  ) {}
 
   public ngOnInit(): void {
     this.listproducts();
@@ -31,8 +36,6 @@ export class StoreComponent implements OnInit {
       this.products = res.slice(pageIndex, pageIndex + this.productsPerPage);
     });
   }
-
-
 
   public allProductsT() {
     return this._productService.getProducts().subscribe(res => {
@@ -64,8 +67,8 @@ export class StoreComponent implements OnInit {
     this.listproducts();
   }
 
-
-  addProductToCart(product: Product) {              
-    this._cart.addToCart(product);              
-}  
+  addProductToCart(product: Product) {
+    this._cart.addToCart(product);
+    this._route.navigateByUrl("/cart");
+  }
 }

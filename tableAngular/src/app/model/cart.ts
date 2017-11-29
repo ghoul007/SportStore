@@ -7,8 +7,8 @@ export class Cart {
   public itemCount: number = 0;
   public lines: CartLine[] = [];
 
-  addToCart(product: Product, quantite: number = 1) {
-    this.lines.push(new CartLine(product, quantite));
+  addToCart(product: Product, quantity: number = 1) {
+    this.lines.push(new CartLine(product, quantity));
     this.recalculate();
   }
 
@@ -31,8 +31,8 @@ removeLine(id: number) {
     this.itemCount = 0;
     this.cartPrice = 0;
     this.lines.forEach(l => {
-      this.itemCount += l.quantite;
-      this.cartPrice += l.quantite * l.product.price;
+      this.itemCount += l.quantity;
+      this.cartPrice += l.quantity * l.product.price;
     });
   }
 
@@ -44,9 +44,9 @@ removeLine(id: number) {
 
 export class CartLine {
   public product: Product;
-  public quantite: number;
-  constructor(product: Product, quantite: number) {
+  public quantity: number;
+  constructor(product: Product, quantity: number) {
     this.product = product;
-    this.quantite = quantite;
+    this.quantity = quantity;
   }
 }
