@@ -1,4 +1,5 @@
-import { RouterModule } from "@angular/router";
+import { StoreFirstGuard } from './store-first.guard';
+import { CanActivate, RouterModule } from '@angular/router';
 import { Cart } from "./model/cart";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
@@ -12,9 +13,9 @@ import { CartDetailComponent } from "./cart-detail/cart-detail.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 
 const ROOT = [
-  { path: "store", component: StoreComponent },
-  { path: "cart", component: CartDetailComponent },
-  { path: "checkout", component: CheckoutComponent },
+  { path: "store", component: StoreComponent, canActivate: [StoreFirstGuard] },
+  { path: "cart", component: CartDetailComponent, canActivate: [StoreFirstGuard] },
+  { path: "checkout", component: CheckoutComponent, canActivate: [StoreFirstGuard] },
   { path: "**", redirectTo: "/store" }
 ];
 @NgModule({
@@ -26,7 +27,7 @@ const ROOT = [
     CheckoutComponent
   ],
   imports: [BrowserModule, HttpModule, RouterModule.forRoot(ROOT)],
-  providers: [ProductService, Cart],
+  providers: [ProductService, Cart, StoreFirstGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
