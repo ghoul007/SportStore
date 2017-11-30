@@ -1,7 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { OrderService } from './order.service';
 import { StoreFirstGuard } from './store-first.guard';
-import { CanActivate, RouterModule } from '@angular/router';
+import { CanActivate, LoadChildren, RouterModule } from '@angular/router';
 import { Cart } from "./model/cart";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
@@ -18,7 +18,8 @@ const ROOT = [
   { path: "store", component: StoreComponent, canActivate: [StoreFirstGuard] },
   { path: "cart", component: CartDetailComponent, canActivate: [StoreFirstGuard] },
   { path: "checkout", component: CheckoutComponent, canActivate: [StoreFirstGuard] },
-  { path: "**", redirectTo: "/store" }
+  { path: 'admin', loadChildren: "app/admin/admin.module#AdminModule",  canActivate: [StoreFirstGuard] },
+  { path: "**", redirectTo: "/store"}
 ];
 @NgModule({
   declarations: [

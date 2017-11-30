@@ -12,7 +12,7 @@ export class CheckoutComponent implements OnInit {
   listOrders = [];
   order = [];
   submitted: boolean = false;
-  constructor(private orderService: OrderService) {}
+  constructor(private orderService: OrderService, private _order: Order) {}
 
   ngOnInit() {
     this.orderService.getOrders().subscribe(res => {
@@ -26,7 +26,7 @@ export class CheckoutComponent implements OnInit {
       this.order["shipped"] = false;
       this.orderService.saveOrder(this.order).subscribe(res => {
        
-        console.log(res);
+// this._order.
       });
     }
   }
