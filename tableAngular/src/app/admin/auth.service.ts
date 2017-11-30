@@ -37,6 +37,10 @@ export class AuthService {
     return this._http.request(request).map(response => response.json());
   }
 
+  authenticated(): boolean {
+    return this.auth_token != null;
+}
+
   authenticate(username, password) {
     let header = new Headers({ "Content-Type": "application/json" });
     let option = new RequestOptions({ headers: header });
@@ -94,4 +98,6 @@ export class AuthService {
   saveOrder(order: Order): Observable<Order> {
     return this.sendRequest(RequestMethod.Post, "orders", order);
   }
+
+
 }
