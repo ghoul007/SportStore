@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { OrderService } from './order.service';
 import { StoreFirstGuard } from './store-first.guard';
 import { CanActivate, RouterModule } from '@angular/router';
 import { Cart } from "./model/cart";
@@ -26,8 +28,8 @@ const ROOT = [
     CartDetailComponent,
     CheckoutComponent
   ],
-  imports: [BrowserModule, HttpModule, RouterModule.forRoot(ROOT)],
-  providers: [ProductService, Cart, StoreFirstGuard],
+  imports: [BrowserModule, HttpModule, FormsModule, RouterModule.forRoot(ROOT)],
+  providers: [ProductService, Cart, StoreFirstGuard, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
