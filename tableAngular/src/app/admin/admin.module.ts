@@ -1,4 +1,6 @@
-import { RouterModule } from '@angular/router';
+import { HttpModule } from "@angular/http";
+import { AuthService } from "./auth.service";
+import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { AuthComponent } from "./auth/auth.component";
 import { AdminComponent } from "./admin/admin.component";
@@ -12,7 +14,8 @@ let routing = RouterModule.forChild([
 ]);
 
 @NgModule({
-  imports: [CommonModule, FormsModule, routing],
-  declarations: [AdminComponent, AuthComponent]
+  imports: [CommonModule, FormsModule, routing, HttpModule],
+  declarations: [AdminComponent, AuthComponent],
+  providers: [AuthService]
 })
 export class AdminModule {}

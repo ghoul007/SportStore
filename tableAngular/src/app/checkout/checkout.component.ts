@@ -1,4 +1,4 @@
-import { Order } from "../model/order";
+ 
 import { NgForm } from "@angular/forms";
 import { OrderService } from "../order.service";
 import { Component, OnInit } from "@angular/core";
@@ -12,7 +12,7 @@ export class CheckoutComponent implements OnInit {
   listOrders = [];
   order = [];
   submitted: boolean = false;
-  constructor(private orderService: OrderService, private _order: Order) {}
+  constructor(private orderService: OrderService) {}
 
   ngOnInit() {
     this.orderService.getOrders().subscribe(res => {
@@ -26,7 +26,7 @@ export class CheckoutComponent implements OnInit {
       this.order["shipped"] = false;
       this.orderService.saveOrder(this.order).subscribe(res => {
        
-// this._order.
+        console.log(res);
       });
     }
   }
