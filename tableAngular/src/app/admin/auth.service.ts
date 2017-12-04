@@ -75,7 +75,7 @@ export class AuthService {
   }
 
   deleteProduct(id: number): Observable<Product> {
-    return this.sendRequest(RequestMethod.Delete, `products/${id}`, null, true);
+    return this.sendRequest(RequestMethod.Delete, `product/${id}`, null, true);
   }
 
   getOrders(): Observable<Order[]> {
