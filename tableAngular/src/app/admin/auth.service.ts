@@ -68,7 +68,7 @@ export class AuthService {
   updateProduct(product): Observable<Product> {
     return this.sendRequest(
       RequestMethod.Put,
-      `products/${product.id}`,
+      `product/${product.id}`,
       product,
       true
     );
@@ -87,17 +87,16 @@ export class AuthService {
   }
 
   updateOrder(order: Order): Observable<Order> {
-    return this.sendRequest(
-      RequestMethod.Put,
-      `orders/${order.id}`,
-      order,
-      true
-    );
+    return this.sendRequest( RequestMethod.Put, `orders/${order.id}`, order, true );
   }
 
   saveOrder(order: Order): Observable<Order> {
     return this.sendRequest(RequestMethod.Post, "orders", order);
   }
 
+
+  clear() {
+    this.auth_token = null;
+}
 
 }
