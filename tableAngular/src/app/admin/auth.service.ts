@@ -79,19 +79,19 @@ export class AuthService {
   }
 
   getOrders(): Observable<Order[]> {
-    return this.sendRequest(RequestMethod.Get, "orders", null, true);
+    return this.sendRequest(RequestMethod.Get, "order", null, true);
   }
 
   deleteOrder(id: number): Observable<Order> {
-    return this.sendRequest(RequestMethod.Delete, `orders/${id}`, null, true);
+    return this.sendRequest(RequestMethod.Delete, `order/${id}`, null, true);
   }
 
   updateOrder(order: Order): Observable<Order> {
-    return this.sendRequest( RequestMethod.Put, `orders/${order.id}`, order, true );
+    return this.sendRequest( RequestMethod.Put, `order/${order.id}`, order, true );
   }
 
   saveOrder(order: Order): Observable<Order> {
-    return this.sendRequest(RequestMethod.Post, "orders", order);
+    return this.sendRequest(RequestMethod.Post, "order", order);
   }
 
 

@@ -1,31 +1,13 @@
 {
   "order": [
     {
-      "id": "f9692954-6873-4a29-ad99-82628b2d8a37",
-      "name": "Mrs. Darron Orn",
-      "address": "895 Wintheiser Pine\nSwaniawskiville, WI 07149-5626",
-      "city": "South Cary",
-      "state": "North Dakota",
-      "country": "Lao People's Democratic Republic",
-      "shipped": true
-    },
-    {
-      "id": "59388910-294d-4054-9978-2e163c6bfbc3",
-      "name": "Mr. Abby Bogan",
-      "address": "169 Lina Forge\nLake Joyport, NE 15110-9902",
-      "city": "Blockville",
-      "state": "Delaware",
-      "country": "Kenya",
-      "shipped": false
-    },
-    {
       "id": "c423b284-505d-404c-8b02-8110da51df39",
       "name": "Mrs. Litzy Padberg",
       "address": "673 Windler Courts\nPort Icieside, DC 01218-9785",
       "city": "Port Roxanne",
       "state": "Texas",
       "country": "Vanuatu",
-      "shipped": false
+      "shipped": true
     },
     {
       "id": "afe627f9-8bd4-42a3-aa41-e6fab2565ab9",
@@ -34,7 +16,7 @@
       "city": "Herzogside",
       "state": "Idaho",
       "country": "Macao",
-      "shipped": false
+      "shipped": true
     },
     {
       "id": "39d56ebe-b89e-45e1-8867-3a0eeeba1c3f",
@@ -43,7 +25,7 @@
       "city": "Wolfburgh",
       "state": "Washington",
       "country": "Angola",
-      "shipped": false
+      "shipped": true
     },
     {
       "id": "d61a876a-f91f-416a-a777-72e1a1ee8ff2",
@@ -52,7 +34,7 @@
       "city": "Altaton",
       "state": "Colorado",
       "country": "Tokelau",
-      "shipped": false
+      "shipped": true
     },
     {
       "id": "00d3b4e1-65fd-4ef9-8539-f055af23ee5f",

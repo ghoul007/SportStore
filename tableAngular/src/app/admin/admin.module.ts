@@ -1,3 +1,4 @@
+import { OrderService } from './order.service';
 import { ProductService } from './product.service';
 import { AuthGuard } from "./auth.guard";
 import { HttpModule } from "@angular/http";
@@ -10,6 +11,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ProductComponent } from './product/product.component';
 import { ProductEditComponent } from "./product/product-edit/product-edit.component";
+import { OrderTableComponent } from './order-table/order-table.component';
  
 
 let routing = RouterModule.forChild([
@@ -19,7 +21,8 @@ let routing = RouterModule.forChild([
   children: [ 
     {path: 'products', component: ProductComponent},
     {path: 'products/:mode', component: ProductEditComponent},
-    {path: 'products/:mode/:id', component: ProductEditComponent}
+    {path: 'products/:mode/:id', component: ProductEditComponent},
+    {path: 'orders', component: OrderTableComponent},
   ]},
 
   { path: "**", redirectTo: "auth" }
@@ -27,7 +30,7 @@ let routing = RouterModule.forChild([
 
 @NgModule({
   imports: [CommonModule, FormsModule, routing, HttpModule],
-  declarations: [AdminComponent, AuthComponent, ProductComponent, ProductEditComponent ],
-  providers: [AuthService, AuthGuard, ProductService]
+  declarations: [AdminComponent, AuthComponent, ProductComponent, ProductEditComponent, OrderTableComponent ],
+  providers: [AuthService, AuthGuard, ProductService, OrderService]
 })
 export class AdminModule {}

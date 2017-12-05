@@ -1,0 +1,57 @@
+<div class="form-check">
+    <label class="form-check-label">
+  <input type="checkbox" class="form-check-input" [(ngModel)]="includeShipped"/>
+      Display Shipped Orders
+  </label>
+</div>
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Zip</th>
+            <th>Shipped</th>
+            <th colspan="2">Cart</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <!-- <ng-template ngFor let-o [ngForOf]="getOrders()"> -->
+        <tr *ngFor="let o of getOrders()">
+            <td>{{o.name}}</td>
+            <td>{{o.zip}}</td>
+            <td>{{o.shipped}}</td>
+            <td>
+                <table>
+                    <thead>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                    </thead>
+                    <tbody>
+                        <!-- <tr *ngFor="let line of o.cart.lines"> -->
+                        <!-- <td colspan="2"></td> -->
+                        <!-- <td>{{line.product.name}}</td> -->
+                        <!-- <td>{{line.quantity}}</td> -->
+                        <!-- </tr> -->
+                    </tbody>
+                </table>
+
+            </td>
+
+            <td>
+                <button class="btn btn-warning" (click)="markShipped(o)">
+                      Ship
+                  </button>
+                <button class="btn btn-danger" (click)="delete(o.id)">
+                      Delete
+                  </button>
+            </td>
+        </tr>
+        <!-- <tr *ngFor="let line of o.cart.lines">
+                <td colspan="2"></td>
+                <td>{{line.product.name}}</td>
+                <td>{{line.quantity}}</td>
+            </tr> -->
+        <!-- </ng-template> -->
+    </tbody>
+</table>
