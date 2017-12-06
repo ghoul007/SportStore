@@ -1,4 +1,3 @@
- 
 import { NgForm } from "@angular/forms";
 import { OrderService } from "../order.service";
 import { Component, OnInit } from "@angular/core";
@@ -10,7 +9,13 @@ import { Component, OnInit } from "@angular/core";
 })
 export class CheckoutComponent implements OnInit {
   listOrders = [];
-  order = [];
+  order = {
+    name: "",
+    address: "",
+    city: "",
+    state: "",
+    country: ""
+  };
   submitted: boolean = false;
   constructor(private orderService: OrderService) {}
 
@@ -25,7 +30,6 @@ export class CheckoutComponent implements OnInit {
     if (form.valid) {
       this.order["shipped"] = false;
       this.orderService.saveOrder(this.order).subscribe(res => {
-       
         console.log(res);
       });
     }

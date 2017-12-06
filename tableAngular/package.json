@@ -4,11 +4,12 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
+        "start": "ng serve -H 0.0.0.0",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "prod": ""
     },
     "private": true,
     "dependencies": {
@@ -22,7 +23,7 @@
         "@angular/platform-browser-dynamic": "^5.0.3",
         "@angular/router": "^5.0.3",
         "core-js": "^2.4.1",
-        "rxjs": "^5.4.2",
+        "rxjs": "^5.5.3",
         "zone.js": "^0.8.14",
         "bootstrap": "4.0.0-alpha.4",
         "font-awesome": "4.7.0"
