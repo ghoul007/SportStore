@@ -1,13 +1,31 @@
-FROM node:6.9.1
+#############
+# with node
+#############
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+# FROM node:6.9.1
 
-COPY . /usr/src/app
-RUN npm install
+# RUN mkdir -p /usr/src/app
+# WORKDIR /usr/src/app
 
-RUN npm run build
+# COPY . /usr/src/app
+# RUN npm install
 
-EXPOSE 4200
+# RUN npm run build
 
-CMD ["node", "server.js"]
+# EXPOSE 4200
+
+# CMD ["node", "server.js"]
+
+
+
+#############
+# with nginx
+#############
+
+#alpine image
+FROM nginx:alpine
+
+#create the server and location configuration
+COPY default.conf /etc/nginx/conf.d/default.conf
+#copies the build app to the default location
+COPY dist /usr/share/nginx/html
