@@ -1,0 +1,11 @@
+services:
+  ui: # name of the first service
+    build: uinginx # specify the directory of the Dockerfile
+    ports:
+      - "8055:8055" # specify port forewarding
+
+  server: #name of the second service
+    build: server # specify the directory of the Dockerfile
+    ports:
+      - "5555:5555" #specify ports forewarding
+ 
